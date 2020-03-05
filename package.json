@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/ihooni/node-typescript-boilerplate/issues"
   },
-  "homepage": "https://github.com/ihooni/node-typescript-boilerplate#readme"
+  "homepage": "https://github.com/ihooni/node-typescript-boilerplate#readme",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
 }
