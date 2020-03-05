@@ -1,0 +1,22 @@
+{
+  "name": "node-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate for Node.js web application which is based on typescript",
+  "main": "./src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihooni/node-typescript-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "ihooni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ihooni/node-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ihooni/node-typescript-boilerplate#readme"
+}
