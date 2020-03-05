@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ihooni/node-typescript-boilerplate#readme",
   "devDependencies": {
+    "prettier": "^1.19.1",
     "typescript": "^3.8.3"
   }
 }
