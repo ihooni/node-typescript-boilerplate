@@ -1,27 +1,15 @@
 {
-  "name": "node-typescript-boilerplate",
-  "version": "1.0.0",
-  "description": "A boilerplate for Node.js web application which is based on typescript",
+  "name": "your-app-name",
+  "version": "0.0.0",
+  "description": "Your app description",
   "main": "./src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ihooni/node-typescript-boilerplate.git"
-  },
-  "keywords": [
-    "boilerplate"
-  ],
-  "author": "ihooni",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ihooni/node-typescript-boilerplate/issues"
-  },
-  "homepage": "https://github.com/ihooni/node-typescript-boilerplate#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
+    "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-standard": "^14.1.0",
