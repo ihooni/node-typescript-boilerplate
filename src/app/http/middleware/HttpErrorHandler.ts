@@ -69,6 +69,8 @@ export default class HttpErrorHandler {
     res,
     next
   ) => {
+    // TODO: log error to file
+
     res.status(500).json({
       err: {
         msg: `internal server error: ${err.message}`
