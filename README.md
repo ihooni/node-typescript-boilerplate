@@ -2,25 +2,25 @@
 
 ### 🏗 Currently processing
 
-- [ ] coding style
-  - [ ] prettier
-  - [ ] eslint
+- ✅ coding style
+  - prettier
+  - eslint
 
-- [ ] process manager
+- ✅ process manager
 
-- [ ] env
+- ✅ env
 
-- [ ] gracefully shutdown
+- gracefully shutdown
 
-- [ ] logger module
+- logger module
 
-- [ ] access log
+- access log
 
-- [ ] db connection module
-  - [ ] mongodb
-  - [ ] mysql
+- db connection module
+  - mongodb
+  - mysql
   
-- [ ] login module
-  - [ ] session
-  - [ ] jwt
-  - [ ] oauth2 google
+- login module
+  - session
+  - jwt
+  - oauth2 google
