@@ -4,6 +4,11 @@
   "description": "Your app description",
   "main": "./src/main.ts",
   "scripts": {
+    "build": "tsc",
+    "start": "pm2 start ./pm2.config.js",
+    "stop": "pm2 stop ./pm2.config.js",
+    "restart": "pm2 restart ./pm2.config.js",
+    "dev": "npm run start && tsc -w --incremental",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
