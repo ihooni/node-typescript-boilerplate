@@ -3,6 +3,7 @@ import mainRouter from '@@/routes/api'
 import cors from 'cors'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
+import HttpErrorHandler from '@/http/middleware/HttpErrorHandler'
 
 export default class RouteServiceProvider {
   /**
@@ -20,7 +21,11 @@ export default class RouteServiceProvider {
    * Error handler middleware list which handle http errors.
    * You can add your own error middleware to here or remove unused things.
    */
-  // private static errorMiddleware = []
+  private static errorMiddleware = [
+    HttpErrorHandler.notFoundHandler,
+    HttpErrorHandler.syntaxErrorHandler,
+    HttpErrorHandler.internalServerErrorHandler
+  ]
 
   /**
    * Boot main router.
@@ -33,7 +38,7 @@ export default class RouteServiceProvider {
     app.set('trust proxy', true)
     app.use(this.basicMiddleware)
     app.use('/v1', mainRouter) // api versioning
-    // app.use(this.errorMiddleware)
+    app.use(this.errorMiddleware)
 
     return app
   }
