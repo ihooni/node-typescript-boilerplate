@@ -2,25 +2,36 @@
 
 ### 🏗 Currently processing
 
-- ✅ coding style
-  - prettier
-  - eslint
+## Basic
 
-- ✅ process manager
+- [x] coding style
+  - [x] prettier
+  - [x] eslint
 
-- ✅ env
+- [x] process manager
 
-- gracefully shutdown
+- [x] env
 
-- logger module
+- [ ] gracefully shutdown
 
-- access log
+- [ ] access log
 
-- db connection module
-  - mongodb
-  - mysql
+- [ ] jest
+
+## Modules
+
+- [ ] logger module
+
+- [ ] db connection module
+  - [ ] mongodb
+  - [ ] mysql
+  - [ ] graphql
   
-- login module
-  - session
-  - jwt
-  - oauth2 google
+- [ ] login module
+  - [ ] session
+  - [ ] jwt
+  - [ ] oauth2 google
+  
+- [ ] websocket module
+ 
+- [ ] mailer module 
