@@ -12,6 +12,8 @@
 
 - [x] env
 
+- [ ] migrate compiler to babel from tsc
+
 - [ ] gracefully shutdown
 
 - [ ] access log
