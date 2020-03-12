@@ -9,7 +9,8 @@ module.exports = {
       exec_mode: 'cluster', // see https://pm2.keymetrics.io/docs/usage/cluster-mode/
       watch: ['build'], // watch build directory which is changed when the typescript code is build
       autorestart: true, // auto restart this app when watched things are changed
-      max_memory_restart: '2G'
+      max_memory_restart: '2G',
+      kill_timeout: process.env.APP_SHUTDOWN_TIMEOUT // set SIGKILL signal timeout for graceful shutdown
     }
   ]
 }
