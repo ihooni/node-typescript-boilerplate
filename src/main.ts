@@ -36,7 +36,10 @@ function bootApp(): void {
     healthChecks: {
       '/healthcheck': onHealthCheck
     },
-    timeout: parseInt(process.env.APP_SHUTDOWN_TIMEOUT, 10),
+    timeout:
+      process.env.APP_ENV === 'production'
+        ? parseInt(process.env.APP_SHUTDOWN_TIMEOUT, 10)
+        : 1, // shutdown right after receiving signal when app env is not production
     signals: ['SIGINT', 'SIGTERM'],
     onSignal
   })
