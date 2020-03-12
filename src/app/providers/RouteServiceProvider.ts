@@ -1,5 +1,5 @@
 import express, { Express } from 'express'
-import mainRouter from '@@/routes/api'
+import v1Router from '@@/routes/v1/api'
 import cors from 'cors'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
@@ -37,7 +37,7 @@ export default class RouteServiceProvider {
     const app = express()
     app.set('trust proxy', true)
     app.use(this.basicMiddleware)
-    app.use('/v1', mainRouter) // api versioning
+    app.use('/v1', v1Router) // api versioning
     app.use(this.errorMiddleware)
 
     return app
