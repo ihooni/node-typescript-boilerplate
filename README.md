@@ -14,7 +14,7 @@
 
 - [x] migrate compiler to babel from tsc
 
-- [ ] gracefully shutdown
+- [x] gracefully shutdown
 
 - [ ] access log
 
