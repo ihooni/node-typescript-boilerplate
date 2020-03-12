@@ -12,7 +12,7 @@
 
 - [x] env
 
-- [ ] migrate compiler to babel from tsc
+- [x] migrate compiler to babel from tsc
 
 - [ ] gracefully shutdown
 
