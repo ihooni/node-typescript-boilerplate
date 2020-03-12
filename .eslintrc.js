@@ -35,8 +35,8 @@ module.exports = {
       }
     ],
     indent: ['error', 2, { ignoredNodes: ['ConditionalExpression'] }],
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': process.env.APP_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.APP_ENV === 'production' ? 'error' : 'off',
     'require-atomic-updates': 'off' // See https://github.com/eslint/eslint/issues/11899
   }
 }
