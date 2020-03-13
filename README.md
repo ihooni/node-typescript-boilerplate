@@ -27,7 +27,6 @@
 - [ ] db connection module
   - [ ] mongodb
   - [ ] mysql
-  - [ ] graphql
   
 - [ ] login module
   - [ ] session
