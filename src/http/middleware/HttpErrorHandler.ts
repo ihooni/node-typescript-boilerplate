@@ -1,4 +1,5 @@
 import { ErrorHandler, SimpleHandler } from '@/http/HttpHandler'
+import Logger from '@/modules/log/Logger'
 
 export default class HttpErrorHandler {
   /**
@@ -56,8 +57,6 @@ export default class HttpErrorHandler {
    * Handle the http internal server error.
    * This is final error handler.
    *
-   * RECOMMENDED: Log this error to file.
-   *
    * @param err
    * @param req
    * @param res
@@ -69,7 +68,7 @@ export default class HttpErrorHandler {
     res,
     next
   ) => {
-    // TODO: log error to file
+    Logger.I.log('error', err.stack)
 
     res.status(500).json({
       err: {
