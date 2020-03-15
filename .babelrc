@@ -10,8 +10,7 @@
       "module-resolver",
       {
         "alias": {
-          "@": "./src/app",
-          "@@": "./src"
+          "@": "./src"
         }
       }
     ]
