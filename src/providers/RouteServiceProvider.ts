@@ -4,6 +4,9 @@ import cors from 'cors'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import HttpErrorHandler from '@/http/middleware/HttpErrorHandler'
+import morgan from 'morgan'
+import fs from 'fs'
+import appRoot from 'app-root-path'
 
 export default class RouteServiceProvider {
   /**
@@ -14,7 +17,12 @@ export default class RouteServiceProvider {
     cors(), // you should your own cors options (see https://github.com/expressjs/cors)
     helmet(),
     bodyParser.json(),
-    bodyParser.urlencoded({ extended: true })
+    bodyParser.urlencoded({ extended: true }),
+    morgan('[:date[iso]] :remote-addr ":method :url" :status ":user-agent"', {
+      stream: fs.createWriteStream(`${appRoot.path}/logs/access.log`, {
+        flags: 'a'
+      })
+    })
   ]
 
   /**

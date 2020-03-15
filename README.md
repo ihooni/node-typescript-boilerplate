@@ -16,7 +16,7 @@
 
 - [x] gracefully shutdown
 
-- [ ] access log
+- [x] access log
 
 - [ ] jest
 
