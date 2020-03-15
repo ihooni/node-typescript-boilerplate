@@ -22,7 +22,7 @@
 
 ## Modules
 
-- [ ] logger module
+- [x] logger module
 
 - [ ] db connection module
   - [ ] mongodb
