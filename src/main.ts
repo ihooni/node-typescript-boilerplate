@@ -2,6 +2,7 @@ import dotenv from 'dotenv'
 import RouteServiceProvider from '@/providers/RouteServiceProvider'
 import http from 'http'
 import { createTerminus } from '@godaddy/terminus'
+import MongoConnector from '@/modules/database/MongoConnector'
 
 /**
  * For kubernetes readiness / liveness checks.
@@ -26,8 +27,9 @@ function onSignal(): Promise<void> {
  * Start the application.
  * This is the main function.
  */
-function bootApp(): void {
+async function bootApp(): Promise<void> {
   // graceful start before open server
+  await MongoConnector.I.connect()
   const app = RouteServiceProvider.boot()
   const server = http.createServer(app)
 
@@ -49,4 +51,4 @@ function bootApp(): void {
 }
 
 dotenv.config() // load env values
-bootApp()
+bootApp().then()
