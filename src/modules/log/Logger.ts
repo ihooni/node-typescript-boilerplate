@@ -18,7 +18,7 @@ export default class Logger {
   /**
    * Actual logger instance
    */
-  private logger: WinstonLogger
+  private readonly logger: WinstonLogger
 
   /**
    * Get singleton instance.
