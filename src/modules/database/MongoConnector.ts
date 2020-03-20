@@ -37,23 +37,18 @@ export default class MongoConnector {
    */
   public async connect(): Promise<void> {
     const uri = `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
-
-    try {
-      await mongoose.connect(uri, {
-        useNewUrlParser: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-        user: process.env.DB_USERNAME,
-        pass: process.env.DB_PASSWORD
-      })
-    } catch (error) {
-      // error on initial connection
-      // mongoose will not attempt to reconnect
-      // so reject connect function
-      Logger.I.log('error', 'mongoose connection is failed')
-      throw error
+    const options = {
+      useNewUrlParser: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+      useUnifiedTopology: true,
+      user: process.env.DB_USERNAME,
+      pass: process.env.DB_PASSWORD,
+      serverSelectionTimeoutMS: 100
     }
+
+    // connect to mongodb
+    await mongoose.connect(uri, options)
 
     // listen mongoose error after initial connection
     // mongoose will attempt to reconnect
