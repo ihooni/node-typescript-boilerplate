@@ -3,6 +3,7 @@ import RouteServiceProvider from '@/providers/RouteServiceProvider'
 import http from 'http'
 import { createTerminus } from '@godaddy/terminus'
 import MongoConnector from '@/modules/database/MongoConnector'
+import Logger from '@/modules/log/Logger'
 
 /**
  * For kubernetes readiness / liveness checks.
@@ -28,9 +29,18 @@ function onSignal(): Promise<void> {
  * This is the main function.
  */
 async function bootApp(): Promise<void> {
-  // graceful start before open server
-  await MongoConnector.I.connect()
-  const app = RouteServiceProvider.boot()
+  let app
+
+  // boot the services
+  try {
+    await MongoConnector.I.connect()
+    app = RouteServiceProvider.boot()
+  } catch (error) {
+    // log the booting error and exit this app
+    Logger.I.log('debug', `App booting error: ${error}`)
+    process.exit(1)
+  }
+
   const server = http.createServer(app)
 
   // configure health checking and graceful shutdown
