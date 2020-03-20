@@ -57,7 +57,9 @@ async function bootApp(): Promise<void> {
   })
 
   // open server
-  server.listen(process.env.APP_PORT)
+  server.listen(process.env.APP_PORT, () => {
+    process.send('ready') // graceful booting the app
+  })
 }
 
 dotenv.config() // load env values
