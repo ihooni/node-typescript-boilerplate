@@ -25,7 +25,7 @@
 - [x] logger module
 
 - [ ] db connection module (based orm)
-  - [ ] mongodb (mongoose)
+  - [x] mongodb (mongoose)
   - [ ] mysql (sequlize)
   
 - [ ] login module
