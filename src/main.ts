@@ -4,6 +4,7 @@ import http from 'http'
 import { createTerminus } from '@godaddy/terminus'
 import MongoConnector from '@/modules/database/MongoConnector'
 import Logger from '@/modules/log/Logger'
+import DBServiceProvider from '@/providers/DBServiceProvider'
 
 /**
  * For kubernetes readiness / liveness checks.
@@ -33,7 +34,7 @@ async function bootApp(): Promise<void> {
 
   // boot the services
   try {
-    await MongoConnector.I.connect()
+    await DBServiceProvider.boot()
     app = RouteServiceProvider.boot()
   } catch (error) {
     // log the booting error and exit this app
