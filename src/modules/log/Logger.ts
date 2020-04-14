@@ -1,5 +1,4 @@
 import winston, { Logger as WinstonLogger } from 'winston'
-import appRoot from 'app-root-path'
 
 const { printf, combine, timestamp, colorize } = winston.format
 
@@ -40,7 +39,7 @@ export default class Logger {
         // transport for out log
         new winston.transports.File({
           level: 'info',
-          filename: `${appRoot.path}/logs/out.log`,
+          filename: `${process.env.APP_LOG_DIR}/out.log`,
           handleExceptions: true,
           maxsize: 5242880, // 5MB
           maxFiles: 10,
@@ -49,7 +48,7 @@ export default class Logger {
         // transport for error log
         new winston.transports.File({
           level: 'error',
-          filename: `${appRoot.path}/logs/error.log`,
+          filename: `${process.env.APP_LOG_DIR}/error.log`,
           handleExceptions: true,
           maxsize: 5242880, // 5MB
           maxFiles: 3,

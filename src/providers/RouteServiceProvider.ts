@@ -6,7 +6,6 @@ import bodyParser from 'body-parser'
 import HttpErrorHandler from '@/http/middleware/HttpErrorHandler'
 import morgan from 'morgan'
 import fs from 'fs'
-import appRoot from 'app-root-path'
 
 export default class RouteServiceProvider {
   /**
@@ -19,7 +18,7 @@ export default class RouteServiceProvider {
     bodyParser.json(),
     bodyParser.urlencoded({ extended: true }),
     morgan('[:date[iso]] :remote-addr ":method :url" :status ":user-agent"', {
-      stream: fs.createWriteStream(`${appRoot.path}/logs/access.log`, {
+      stream: fs.createWriteStream(`${process.env.APP_LOG_DIR}/access.log`, {
         flags: 'a'
       })
     })

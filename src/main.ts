@@ -2,9 +2,9 @@ import dotenv from 'dotenv'
 import RouteServiceProvider from '@/providers/RouteServiceProvider'
 import http from 'http'
 import { createTerminus } from '@godaddy/terminus'
-import MongoConnector from '@/modules/database/MongoConnector'
 import Logger from '@/modules/log/Logger'
 import DBServiceProvider from '@/providers/DBServiceProvider'
+import fs from 'fs'
 
 /**
  * For kubernetes readiness / liveness checks.
@@ -26,13 +26,16 @@ function onSignal(): Promise<void> {
 }
 
 /**
- * Start the application.
- * This is the main function.
+ * Start this application.
  */
 async function bootApp(): Promise<void> {
-  let app
+  // if directory for log is not exist, make it
+  if (!fs.existsSync(process.env.APP_LOG_DIR)) {
+    fs.mkdirSync(process.env.APP_LOG_DIR)
+  }
 
   // boot the services
+  let app
   try {
     await DBServiceProvider.boot()
     app = RouteServiceProvider.boot()
